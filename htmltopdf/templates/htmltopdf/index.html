@@ -1,0 +1,161 @@
+{%extends 'htmltopdf/base.html'%}
+
+{%block head_block%}
+<title>Basic Info</title>
+<style media="screen">
+
+.container{
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  }
+}
+</style>
+{%endblock%}
+
+{%block body_block%}
+<h1>Please fill the following data honestly.</h1>
+<form method="post">
+  {%csrf_token%}
+  <table>
+    <tr>
+      <td><p>Headline:</p></td>
+      <td><input type="text" name="headline" ></td>
+    </tr>
+    <tr>
+      <td><p>First Name:</p></td>
+      <td><input type="text" name="first_name" ></td>
+    </tr>
+    <tr>
+      <td><p>Last Name</p></td>
+      <td><input type="text" name="last_name" ></td>
+    </tr>
+    <tr>
+      <td><p>Current Position:</p></td>
+      <td><input type="text" name="current_position" ></td>
+    </tr>
+    <tr>
+      <td><p>Education:</p></td>
+      <td><input type="text" name="education" ></td>
+    </tr>
+    <tr>
+      <td><p>Country Region</p></td>
+      <td><input type="text" name="country_region" ></td>
+    </tr>
+    <tr>
+      <td><p>Location</p></td>
+      <td><input type="text" name="location"></td>
+    </tr>
+    <tr>
+      <td><p>Industry</p></td>
+      <td><input type="text" name="industry"></td>
+    </tr>
+    <tr>
+      <td><p>Contact Information</p></td>
+      <td><input type="text" name="contact_information"></td>
+    </tr>
+    <tr>
+      <td><p>Description</p></td>
+      <td><input type="text" name="description"></td>
+    </tr>
+    <tr>
+      <td><p>School Name</p></td>
+      <td><input type="text" name="school_name"></td>
+    </tr>
+    <tr>
+      <td><p>School Degree</p></td>
+      <td><input type="text" name="school_degree"></td>
+    </tr>
+    <tr>
+      <td><p>Field of Study</p></td>
+      <td><input type="text" name="field_of_study"></td>
+    </tr>
+    <tr>
+      <td><p>Location of School</p></td>
+      <td><input type="text" name="location_of_school"></td>
+    </tr>
+    <tr>
+      <td><p>Start School</p></td>
+      <td><input type="text" name="start_school"></td>
+    </tr>
+    <tr>
+      <td><p>End School</p></td>
+      <td><input type="text" name="end_school"></td>
+    </tr>
+    <tr>
+      <td><p>Experience Title</p></td>
+      <td><input type="text" name="experience_title"></td>
+    </tr>
+    <tr>
+      <td><p>Company Name</p></td>
+      <td><input type="text" name="company_name"></td>
+    </tr>
+    <tr>
+      <td><p>Company Location</p></td>
+      <td><input type="text" name="company_location"></td>
+    </tr>
+    <tr>
+      <td><p>Start Company</p></td>
+      <td><input type="text" name="start_company"></td>
+    </tr>
+    <tr>
+      <td><p>End Company</p></td>
+      <td><input type="text" name="end_company"></td>
+    </tr>
+    <tr>
+      <td><p>Area of Expertise</p></td>
+      <td><input type="text" name="area_of_expertise"></td>
+    </tr>
+    <tr>
+      <td><p>Project Name</p></td>
+      <td><input type="text" name="project_name"></td>
+    </tr>
+    <tr>
+      <td><p>Start Project</p></td>
+      <td><input type="text" name="start_project"></td>
+    </tr>
+    <tr>
+      <td><p>End Project</p></td>
+      <td><input type="text" name="end_project"></td>
+    </tr>
+    <tr>
+      <td><p>Project Creator</p></td>
+      <td><input type="text" name="project_creator"></td>
+    </tr>
+    <tr>
+      <td><p>Assocaiated With</p></td>
+      <td><input type="text" name="associated_with"></td>
+    </tr>
+    <tr>
+      <td><p>Project URL</p></td>
+      <td><input type="text" name="project_url"></td>
+    </tr>
+    <tr>
+      <td><p>Project Description</p></td>
+      <td><input type="text" name="project_description"></td>
+    </tr>
+    <tr>
+      <td><p>Accomplishment Title</p></td>
+      <td><input type="text" name="accomplisment_title"></td>
+    </tr>
+    <tr>
+      <td><p>Accomplishment Assocaiated With</p></td>
+      <td><input type="text" name="accomplisment_associated_with"></td>
+    </tr>
+    <tr>
+      <td><p>Issuer</p></td>
+      <td><input type="text" name="issuer"></td>
+    </tr>
+    <tr>
+      <td><p>Issue Date</p></td>
+      <td><input type="text" name="issue_date"></td>
+    </tr>
+    <tr>
+      <td><p>Accomplishment Description</p></td>
+      <td><input type="text" name="accomplisment_description"></td>
+    </tr>
+  </table>
+  <input type="submit" name="" value="Submit" class="btn btn-primary">
+</form>
+{%endblock%}

@@ -1,0 +1,56 @@
+{%load myfilters%}
+<head>
+  <style>
+    h1{font-size:400%;
+    text-align:center;}
+    td{font-size:250%;
+    padding-right:0px;}
+
+  </style>
+  <title>Pdf</title>
+</head>
+<body>
+  <h1>Resume</h1>
+  <table>
+    {% for key, value in dict.items %}
+      {%if key != 'csrfmiddlewaretoken' %}
+        {%if value != '[]' and value != '' and value != ' ' and value != '[""]'%}
+          <tr>
+            <td>{{key|correct}}</td>
+            <td>{{value|forvalue}}</td>
+          </tr>
+        {%endif%}
+      {%endif%}
+    {% endfor %}
+  </table>
+
+  <hr>
+    <!-- <table>
+    		<tr>
+          <td>Name:</td>
+          <td>{{first_name}}</td></tr>
+        <tr>
+          <td>Address:</td>
+          <td>{{addr}}</td>
+        </tr>
+    		<tr>
+          <td>Email:</td>
+    			<td>{{mail}}</td>
+
+    		</tr>
+        <tr>
+          <td>DOB:</td>
+          <td>{{dob}}</td>
+        </tr>
+        <tr>
+          <td>Salary</td>
+          <td>{{sal}}</td>
+        </tr>
+        <tr>
+          <td>Experience</td>
+          <td>{{exp}}</td>
+        </tr>
+    </table>
+<hr> -->
+</body>
+</html>

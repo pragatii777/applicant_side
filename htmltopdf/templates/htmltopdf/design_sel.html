@@ -1,0 +1,28 @@
+{% extends "dashboard.html" %}
+{% load static %}
+{% block content %}
+<div class="header bg-primary pb-6">
+	<div class="container-fluid">
+        <div class="header-body">
+            <div class="row py-4">
+                <div class="col-lg-12">
+                    <h6 class="h2 text-white mb-3">Resume Template</h6>
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4 col-md-12">
+                    	<h1 class="mb-3 text-white">Select one of the following designs as the resume template</h1>
+                    </nav>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container mt--6">
+	<div class="row">
+			<div class="col-md-6">
+			<a href="{% url 'converter:fork' temp_index=1 %}"><img src="{% static 'ResumeA.JPG' %}" alt="Img1" height="500" width="400"></a>
+		</div>
+		<div class="col-md-6">
+			<a href="{% url 'converter:fork' temp_index=2 %}"><img src="{% static 'ResumeB.JPG' %}" alt="Img2" height="500" width="400"></a>
+		</div>
+	</div>
+</div>
+{% endblock %}

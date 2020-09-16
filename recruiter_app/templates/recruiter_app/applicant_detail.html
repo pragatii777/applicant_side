@@ -1,0 +1,344 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+<!-- Script -->
+
+<!-- CSS -->
+    <div class="header bg-primary pb-6">
+        <div class="container-fluid">
+            <div class="header-body">
+                <div class="row align-items-center py-4">
+                    <div class="col-lg-6 col-7">
+                        <h6 class="h2 text-white d-inline-block mb-0">Applicant Details</h6>
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item active" aria-current="page">ApplicantDetails</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt--6">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-12">
+                <div class="card card-pricing border-0 text-center mb-4">
+                    <div class="card-header bg-transparent">
+                        <div class="display-2">{{ applicantuserprofile.headline }}</div>
+                        <span class=" text-muted">Applied By: {{ applicantuserprofile.first_name }}</span>
+                    </div>
+                    <div class="card-body px-lg-7">
+                        <ul class="list-unstyled my-4">
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-terminal"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">First Name: {{ applicantuserprofile.first_name }}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-pen-fancy"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Last Name: {{applicantuserprofile.last_name}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-pen-fancy"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">pheadline: {{applicantuserprofile.pheadline}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Current Position :{{applicantuserprofile.current_position}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Education :{{tapplicantuserprofile.education}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Country Region: {{applicantuserprofile.country_region}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Location: {{applicantuserprofile.location}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Contact Information:{{applicantuserprofile.contact_information}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">School Name:{{applicantuserprofile.school_name}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">School Degree:{{applicantuserprofile.school_degree}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Field Of Study:{{applicantuserprofile.field_of_study}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Area of Expertise:{{applicantuserprofile.area_of_expertise}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Company_name:{{applicantuserprofile.company_name}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Experience Title:{{applicantuserprofile.experience_title}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Company Location:{{applicantuserprofile.company_location}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">company start month:{{applicantuserprofile.company_start_month}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">company start year:{{applicantuserprofile.company_start_year}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">end month of company:{{applicantuserprofile.end_month_of_company}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">end year of company:{{applicantuserprofile.end_year_of_company}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">project name:{{applicantuserprofile.project_name}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">start_month_of_project:{{applicantuserprofile.start_month_of_project}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">start_year_of_project:{{applicantuserprofile.start_year_of_project}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">end_month_of_project:{{applicantuserprofile.end_month_of_project}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">end_year_of_project:{{applicantuserprofile.end_year_of_project}}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">project_creator:{{applicantuserprofile.project_creator}}</span>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

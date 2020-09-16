@@ -1,0 +1,33 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+    <div class="container-fluid mt--6">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-12">
+                <div class="card">
+                    <!-- Card header -->
+                    <div class="card-header">
+                        <h1 class="mb-0">User Profile Form</h1>
+                    </div>
+                    <!-- Card body -->
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                <div class="form-group row justify-content-center">
+                                    <label for="example-text-input" class="col-md-3 col-4 col-form-label form-control-label">{{ field.label_tag }}</label>
+                                    <div class="col-md-9 col-8">
+                                        {{ field }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

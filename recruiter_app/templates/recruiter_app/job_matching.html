@@ -1,0 +1,124 @@
+{% extends "dashboard.html" %}
+
+
+{% block content %}
+<div class="container-fluid mt--3">
+    <div>
+    <div class="display-2">{{ job.job_title }}</div>
+    <span class=" text-muted">Posted By: {{ job.posted_by}}</span>
+
+                    <a class="btn btn-primary nav-link" href="{% url 'recruiter:alreadycan' pk=job.pk %}"
+                               class="btn btn-simple"style="background-color: black;color:white;margin-left:8vw">View Short Listed Candidates</a>
+    <div class="card-header bg-transparent border-0">
+                <h1>Best Candidates </h1>
+    </div>
+        {% if qs %}
+    <div class="card-body">
+                <div class="alert alert-primary" role="alert">
+                You have  {{ count }} best Candidates!
+                </div>
+    </div>
+
+    <div class="table-responsive">
+        <div>
+
+            <table class="table align-items-center">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col" class="sort" data-sort="name">Username</th>
+                    <th scope="col" class="sort" data-sort="location">Location</th>
+                    <th scope="col" class="sort" data-sort="skills">Skills</th>
+                    <th scope="col" class="sort" data-sort="skills">Education</th>
+                </tr>
+                </thead>
+
+                {% for qss in qs %}
+                <tbody class="list">
+                <tr>
+                    <th scope="row">
+                        <div class="media-body">
+                            <a href="{% url 'recruiter:applicant_detail' pk=qss.pk %}">
+                                <span class="name mb-0 text-sm">{{ qss.user }}</span>
+                            </a>
+                        </div>
+                    </th>
+                    <td>
+                    <span class="name mb-0 text-sm">{{ qss.location }}</span>
+                    </td>
+                    <td>
+                        <span class="name mb-0 text-sm">{{ qss.area_of_expertise }}</span>
+                    </td>
+                    <td>
+                    <span class="name mb-0 text-sm">{{ qss.education }}</span>
+                    </td>
+                </tr>
+
+            {% endfor %}
+                </tbody>
+            </table>{% else %}
+            <div class="card-body">
+                <div class="alert alert-primary" role="alert">
+               You dont have any Candidates
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <br><br><br>
+    <div class="card-header bg-transparent border-0">
+                <h1>Candidates Applied for the job</h1>
+    </div>
+        {% if qs1 %}
+    <div class="card-body">
+                <div class="alert alert-primary" role="alert">
+                 You have {{ count1 }} Applied for the job!
+                </div>
+    </div>
+
+    <div class="table-responsive">
+        <div>
+            <table class="table align-items-center">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col" class="sort" data-sort="name">Username</th>
+                    <th scope="col" class="sort" data-sort="location">Location</th>
+                    <th scope="col" class="sort" data-sort="skills">Skills</th>
+                    <th scope="col" class="sort" data-sort="skills">Education</th>
+                </tr>
+                </thead>
+
+                {% for apply in qs1 %}
+                <tbody class="list">
+                <tr>
+                    <th scope="row">
+                        <div class="media-body">
+                            <a href="{% url 'recruiter:applicant_detail' pk=apply.pk %}">
+                                <span class="name mb-0 text-sm">{{ apply.user }}</span>
+                            </a>
+                        </div>
+                    </th>
+                    <td>
+                    <span class="name mb-0 text-sm">{{ apply.location }}</span>
+                    </td>
+                    <td>
+                        <span class="name mb-0 text-sm">{{ apply.area_of_expertise }}</span>
+                    </td>
+                    <td>
+                    <span class="name mb-0 text-sm">{{ apply.education }}</span>
+                    </td>
+                </tr>
+
+            {% endfor %}
+                </tbody>
+            </table>{% else %}
+            <div class="card-body">
+                <div class="alert alert-primary" role="alert">
+                 You dont have any Candidates
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    </div>
+</div>
+{% endblock content %}

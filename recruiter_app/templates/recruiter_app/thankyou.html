@@ -1,0 +1,68 @@
+{% extends "dashboard.html" %}
+{% block content %}
+  <div class="container">
+      <h1>We will contact you shortly</h1>
+      </div>
+<br><br><br><br>
+      <div class="container-fluid mt--6">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-12">
+                <div class="card">
+                    <!-- Card header -->
+                    <div class="card-header bg-transparent border-0">
+                        <h1>Your shortlisted candidates</h1>
+                    </div>
+                    {% if l1 %}
+                    <div class="card-body">
+                        <div class="alert alert-primary" role="alert">
+                            You have {{ count }} shortlisted candidates!
+                        </div>
+
+                        <div class="table-responsive">
+                            <div>
+                                <table class="table align-items-center">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col" class="sort" data-sort="name">Username</th>
+                                        <th scope="col" class="sort" data-sort="location">Location</th>
+                                        <th scope="col" class="sort" data-sort="skills">Skills</th>
+                                        <th scope="col" class="sort" data-sort="skills">Education</th>
+                                    </tr>
+                                    </thead>
+                                    {% for c in l1 %}
+                                    <tbody class="list">
+                                    <tr>
+                                        <th scope="row">
+                                            <div class="media-body">
+                                                <a href="{% url 'recruiter:applicant_detail' pk=c.pk %}">
+                                                    <span class="name mb-0 text-sm">{{ c.user }}</span>
+                                                </a>
+                                            </div>
+                                        </th>
+                                        <td>
+                                            <span class="name mb-0 text-sm">{{ c.location }}</span>
+                                        </td>
+                                        <td>
+                                            <span class="name mb-0 text-sm">{{ c.area_of_expertise }}</span>
+                                        </td>
+                                        <td>
+                                            <span class="name mb-0 text-sm">{{ c.education }}</span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>{% else %}
+                                 <div class="alert alert-primary" role="alert">
+                            You dont have any Candidates
+                        </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

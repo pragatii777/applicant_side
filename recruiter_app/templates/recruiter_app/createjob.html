@@ -1,0 +1,100 @@
+{% extends "dashboard.html" %}
+{% load static %}
+{% block content %}
+{% block style %}
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
+    <link rel="stylesheet" href="{% static 'css/gijgo.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/multiple-select.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/jquery.datetimepicker.css' %}">
+{% endblock %}
+<link rel="stylesheet" href="{% static 'css/gijgo.min.css' %}">
+    <!-- Masthead-->
+
+    <div class="container-fluid mt--6">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="mb-0">POST A JOB</h1>
+                    </div>
+                    <!-- Card body -->
+                    <div class="card-body">
+                        <form method="POST" class="form">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                <div class="form-group row justify-content-center">
+                                    <label for="example-text-input" class="col-md-3 col-4 col-form-label form-control-label">{{ field.label_tag }}</label>
+                                    <div class="col-md-9 col-8">
+                                        {{ field }}
+                                        <script src="{% static 'js/jquery-3.5.1.min.js' %}" charset="utf-8"></script>
+                                        <script src="{% static 'js/gijgo.min.js' %}" charset="utf-8"></script>
+                                        <script src="{% static 'js/multiple-select.js' %}" charset="utf-8"></script>
+                                        <script src="{% static 'js/jquery.datetimepicker.full.min.js' %}" charset="utf-8"></script>
+                                        <script>
+                                            $('#id_date').datetimepicker({
+                                                format: 'm/d/Y H:i',
+                                            });
+                                            var v=document.getElementById("id_job_requirements");    
+                                            var dat=[{
+                                                text:"",
+                                                value:""
+                                            }];
+                                            var v1=v.getElementsByTagName("li");
+                                            for(var i=0;i<v1.length;i++)
+                                            {   
+                                                dat[i]={
+                                                    text: v1[i].textContent,
+                                                    value: v1[i].textContent
+                                                }
+                                            }
+                                            if(dat.length>1){
+                                                v.setAttribute("multiple",null);
+                                                $('#id_job_requirements').multipleSelect({
+                                                    multiple: true,
+                                                    data:dat,
+                                                    filter: true,
+                                                    multipleWidth: 300,
+                                                    maxHeight: 150,
+                                                    width: 300,
+                                                    dropWidth: 300,
+                                                    displayHtml: false,
+                                                    displayValues: true,
+                                                    displayTitle: true,
+                                                    minimumCountSelected: 10,
+                                                    keepOpen: true,
+                                                    showClear: true,
+                                                    placeholder: 'Select Skills',
+                                                 });
+                                            }
+                                            else{
+                                                $('#id_job_requirements').multipleSelect({
+                                                    multiple: true,
+                                                    filter: true,
+                                                    multipleWidth: 300,
+                                                    maxHeight: 150,
+                                                    width: 300,
+                                                    dropWidth: 300,
+                                                    displayHtml: false,
+                                                    displayValues: true,
+                                                    displayTitle: true,
+                                                    minimumCountSelected: 10,
+                                                    keepOpen: true,
+                                                    showClear: true,
+                                                    placeholder: 'Select Skills',
+                                                 });
+                                            }
+                                        </script>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                                <div class="text-center">
+                                <button type="submit" class="btn btn-primary">POST JOB</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

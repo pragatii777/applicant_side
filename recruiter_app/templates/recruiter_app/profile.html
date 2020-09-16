@@ -1,0 +1,68 @@
+{% extends "dashboard.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+    <div class="container-fluid mt--6">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-12">
+                <div class="card">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3 order-lg-2">
+                            <div class="card-profile-image">
+                                <a href="#">
+                                    <img src="{% static 'dashboard/img/theme/person.png' %}" class="rounded-circle"
+                                         alt="profile">
+                                    <img src="{{ url }}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+                        <div class="d-flex justify-content-between">
+                        </div>
+                    </div>
+                    <div class="card-body container col-md-10">
+                        <div class="row">
+                            <div class="col">
+                                <div class="card-profile-stats d-flex justify-content-center">
+                                    <div>
+                                        <h1>{{ user.username }}</h1>
+                                        <div class="h5 font-weight-300">
+                                            <i class="ni location_pin mr-2"></i>{{ user.email }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="">
+                                <h1>Edit Profile</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <form method="POST" class="form" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row">
+                                    {% for i in u_form %}
+                                        <div class="col-6">
+                                            <label for="id_{{ i.name }}">{{ i.label }}:</label>
+                                            <input class="form-control" type="text" name="{{ i.name }}"
+                                                   id="id_{{ i.name }}" value="{{ i.value }}">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="text-center m-2">
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

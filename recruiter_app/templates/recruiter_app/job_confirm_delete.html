@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <!-- Masthead-->
+<header class="masthead auth">
+  <div class="container">
+  <div class="row">
+    <div class="col-md-4 col-xs-8 formDesign">
+    <h1>DELETE JOB ?</h1>
+      <form method="POST" class="form">
+        {% csrf_token %}
+        {{form.as_p}}
+        <h2>Are you sure you want to delete the {{job.job_title}}?</h2>
+        <button type="submit" class="btn btn-outline-danger">DELETE</button>
+        <a href="{% url 'recruiter:job_detail' pk=job.pk  %}" class="btn btn-secondary" >CANCEL</a>
+      </form>
+    </div>
+    <div class="col-md-4 col-xs-2"></div>
+  </div>
+    
+  </div>
+</header>
+{% endblock content %}
