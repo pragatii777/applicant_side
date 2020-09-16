@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>Verify</title>
+</head>
+<body>
+<h2>Enter details for verification.</h2>
+<form method="post" action="">
+ {% csrf_token %}
+ <input type="text" placeholder="Full Name" name="fullname"><br><br>
+ <input type="mail" placeholder="Your E-Mail" name="mail"><br><br>
+ <input type="text" placeholder="Contact Number" name="number"><br><br>
+ <button>Submit and Apply</button>
+</form>
+</body>
+</html>

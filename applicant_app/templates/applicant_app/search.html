@@ -1,0 +1,101 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+    <div class="header bg-primary pb-6">
+        <div class="container-fluid">
+            <div class="header-body">
+                <div class="row py-4">
+                    <div class="col-lg-12">
+                        <h6 class="h2 text-white mb-3">Job Listing</h6>
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4 col-md-12">
+                            <form  action="{% url 'applicant:search' %}" method="get" accept-charset="utf-8">
+                                <div class="row align-items-center justify-content-center">
+                                    <div class="col-md-1">
+                                        <button class="btn bg-light searchbutton" type="submit">
+                                          <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input  id="query_title" name="query_title" type="text" placeholder="Search Job Title">
+                                <!-- <button class="searchbutton" type="submit">
+                                    <i class="fa fa-search"></i>
+                                  </button> -->
+                                  </div>
+                                    <div class="col-md-2">
+                                        <input  id="query_skills" name="query_skills" type="text" placeholder="Search by Skills">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input  id="query_location" name="query_location" type="text" placeholder="Search by Location">
+                                    </div>
+                                </div>
+                            </form>                 
+                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark mt-3">
+                                <li class="breadcrumb-item"><a href="{% url 'applicant:jobs_list' %}"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item active" aria-current="page">jobsList</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mt--6">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-12">
+                <div class="card">
+                    <!-- Card header -->
+                    <div class="card-header bg-transparent border-0">
+                        <h1>Search Results</h1>
+                    </div>
+                    <!-- Translucent table -->
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush">
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="sort" data-sort="name">JOB TITLE</th>
+                            </tr>
+                            </thead>
+                            <tbody class="list">
+                            {% if jobs|length < 1 %}
+                            <p>
+                                No search result found.
+
+                                <!-- Your Search - <b>{{query_title}} </b>- did not match any Job.<br> -->
+
+                                Suggestions:
+                                <ul>
+                                <li>
+                                Try different keywords.
+                                </li>
+                                </ul>
+                            </p>
+                            {% endif %}
+                            {% for job in jobs %}
+                                <tr>
+                                    <th scope="row">
+                                        <a href="{% url 'applicant:job_detail' pk=job.pk %}">
+                                            <div class="media align-items-center">
+                                                <div class="media-body">
+                                                    <span class="name mb-0 text-sm">{{ job.job_title }}</span><br>
+                                                    <span class="pl-2 text-sm">Job Salary: {{ job.job_salary }}</span><br>
+                                                    <span class="pl-2 text-sm">Company name: {{job.company_name}}</span><br>
+                                                    <span class="pl-2 text-sm">Type of Job :{{job.type_of_job}}</span><br>
+                                                    <span class="pl-2 text-sm">job Location :{{job.job_location}}</span><br>
+                                                    <span class="pl-2 text-sm">job Requirements: {{job.job_requirements}}</span>
+
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </th>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+

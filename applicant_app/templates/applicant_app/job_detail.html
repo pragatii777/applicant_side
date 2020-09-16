@@ -1,0 +1,140 @@
+{% extends "dashboard.html" %} {% block content %}
+
+
+    <div class="header bg-primary pb-6">
+        <div class="container-fluid">
+            <div class="header-body">
+                <div class="row align-items-center py-4">
+                    <div class="col-lg-6 col-7">
+                        <h6 class="h2 text-white d-inline-block mb-0">Job Details</h6>
+                        <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                                <li class="breadcrumb-item active" aria-current="page">jobDetail</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mt--6">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-12">
+                <div class="card card-pricing border-0 text-center mb-4">
+                    <div class="card-header bg-transparent">
+                        <div class="display-2">{{ job.job_title }}</div>
+                        <span class=" text-muted">Posted By: {{ job.posted_by.recruiteruserprofile.name }}</span>
+                    </div>
+                    <div class="card-body px-lg-7">
+                        <ul class="list-unstyled my-4">
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-terminal"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Job Domain: {{ job.job_domain }}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-pen-fancy"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Job Salary: {{ job.job_salary }}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Job Vacancies: {{ job.job_vacancies }}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Job Mandatory Skills: {{ job.job_mandatory_skills }}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Job Preferred Skills: {{ job.job_preferred_skills }}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Job Description: {{ job.job_description }}</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-xs icon-shape bg-gradient-primary text-white shadow rounded-circle">
+                                            <i class="fas fa-hdd"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="pl-2 text-sm">Company Description: {{ job.company_description }}</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="{% url 'applicant:applytojob' pk=job.pk %}">
+                            <button type="button" class="btn btn-primary mb-3">Apply Now</button>
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <p class="text-muted">It's free! Apply Now</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col">
+            <h2>Applied by:</h2>
+            <ul class="list-group list-group-flush">
+                {% for applicant in job.applied_by.all %}
+                    <li class="list-group-item">
+                    <a href="#">{{ applicant.applicantuserprofile.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    </div>
+{% endblock content %}

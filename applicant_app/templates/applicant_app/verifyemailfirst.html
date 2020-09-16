@@ -1,0 +1,8 @@
+{% extends "dashboard.html" %}
+{% block content %}
+  <div class="container">
+      <h1>You have not verified your email yet. Kindly verify your email to apply for the job.
+      <br> If you cannot find your confirmation email anymore, send yourself a new one here.
+          <span><a href="{% url 'accounts:email_form' %}"><br>E-mail</a></span></h1>
+  </div>
+{% endblock content %}

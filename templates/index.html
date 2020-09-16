@@ -1,0 +1,332 @@
+{% extends "base.html" %} {% block content %} {% if user.is_authenticated %}
+    {% load static %}
+    <header class="masthead">
+        <div class="container">
+            <div class="row">
+                <div class="col"><br><br></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="masthead-heading"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="">
+        <div class="container">
+            <div class="row justify-content-center">
+                <h1>Hi {{ user.username }}</h1>
+            </div>
+        </div>
+    </section>
+{% else %}
+
+    <!-- Masthead-->
+    <header class="" id="homePage">
+        <div class="container-fluid" style="margin:0; padding: 0">
+            <div class="row">
+                <div id="homePageCarousel" class="col carousel slide">
+                    <ol class="carousel-indicators">
+                        <li data-target="#homePageCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#homePageCarousel" data-slide-to="1"></li>
+                        <li data-target="#homePageCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="one headerTitle paddingSlider">
+                                <div>
+                                <h1>Jobs Board</h1>
+                                <p>Choose a job you love and you will never have to work a day in
+                                    your life</p></div>
+                            </div>
+                        </div>
+                        <div class="two carousel-item">
+                            <div class="two headerTitle paddingSlider">
+                                <div>
+                                <h1>Talent Showcase</h1>
+                                <p>Great vision without great people is irrelevant</p></div>
+                            </div>
+                        </div>
+                        <div class="three carousel-item">
+                            <div class="three headerTitle paddingSlider">
+                                <div>
+                                <h1>Staffing Software</h1>
+                                <p>Engagement has to be human because people trust people</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#homePageCarousel" role="button"
+                       data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#homePageCarousel" role="button"
+                       data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="">
+        <!--
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div id="searchForm" class="col-md-10 col-10">
+                        <h3 class="m-2">I'm looking for -</h3>
+                        <ul class="nav" id="searchTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="job-tab" data-toggle="tab" href="#job" role="tab"
+                                   aria-controls="job" aria-selected="true"><h3>Jobs</h3></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="people-tab" data-toggle="tab" href="#people" role="tab"
+                                   aria-controls="people" aria-selected="false"><h3>People</h3></a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="searchTabContent">
+                            <div class="tab-pane fade show active" id="job" role="tabpanel" aria-labelledby="job-tab">
+                                <form id="jobSearchForm">
+                                    <div class="row">
+                                        <div class="col-md-7 col-12">
+                                            <label class="" for="jobs"></label>
+                                            <input type="text" class="form-control" id="jobs"
+                                                   placeholder="Search by title, skills or keywords">
+                                        </div>
+                                        <div class="col-md-4 col-12">
+                                            <label for="locationJobs"></label>
+                                            <input type="text" class="form-control" id="locationJobs"
+                                                   placeholder="Location">
+                                        </div>
+                                        <div class="col-md-1 col-12 text-center">
+                                            <label class="d-none d-sm-block" for="searchBtn"></label>
+                                            <button type="submit" class="col-md-12 col-4 btn btn-primary fa fa-search"></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="people" role="tabpanel" aria-labelledby="people-tab">
+                                <form id="peopleSearchForm">
+                                    <div class="row">
+                                        <div class="col-md-7 col-12">
+                                            <label class="" for="jobs"></label>
+                                            <input type="text" class="form-control" id="jobs"
+                                                   placeholder="Search by name, designation, skills or keywords">
+                                        </div>
+                                        <div class="col-md-4 col-12">
+                                            <label for="locationJobs"></label>
+                                            <input type="text" class="form-control" id="locationJobs"
+                                                   placeholder="Mumbai etc.">
+                                        </div>
+                                        <div class="col-md-1 col-12 text-center">
+                                            <label class="d-none d-sm-block" for="searchBtn"></label>
+                                            <button type="submit" class="col-md-12 col-4 btn btn-primary fa fa-search"></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    -->
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="text-center">QUICK STATS & FACTS</h2>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-3 col-6 statsDiv">
+                    <h1 id="registeredCompanies" class="statsCount">114+</h1>
+                    <h3>Registered Companies</h3>
+                </div>
+                <div class="col-md-3 col-6 statsDiv">
+                    <h1 id="applicants" class="statsCount">5000+</h1>
+                    <h3>Applicants</h3>
+                </div>
+                <div class="col-md-3 col-6 statsDiv">
+                    <h1 id="careers" class="statsCount">100+</h1>
+                    <h3>Careers made till date</h3>
+                </div>
+                <div class="col-md-3 col-6 statsDiv">
+                    <h1 id="tieUPS" class="statsCount">100+</h1>
+                    <h3>College's partnered</h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col">
+                    <h2 class="text-center">CHOOSE YOUR PATH</h2>
+                </div>
+            </div>
+            <div class="row " id="path">
+                <div class="col-md-6 col-12 recruiterDesign">
+                    <div>
+                        <h5>I am ready to</h5>
+                        <h2>HIRE CANDIDATES</h2>
+                        <a class="btn btn-secondary" href="{% url 'accounts:recruiter-signup' %}">
+                            FIND CANDIDATES
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12 jobDesign">
+                    <div>
+                        <h5>I am ready to</h5>
+                        <h2>GET TO WORK</h2>
+                        <a class="btn btn-primary" href="{% url 'accounts:applicant-signup' %}">
+                            FIND JOB
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid bg-primary text-white">
+            <div class="container" id="sectorsDiv">
+                <div class="row text-center">
+                    <div class="col-md-3 col-6 statsDiv">
+                        <img src="{% static 'img/sectors/it.png' %}" alt="" width=200 height=200>
+                        <h3>IT</h5>
+                    </div>
+                    <div class="col-md-3 col-6 statsDiv">
+                        <img src="{% static 'img/sectors/fmcg.png' %}" alt="" width=200 height=200>
+                        <h3>FMCG</h5>
+                    </div>
+                    <div class="col-md-3 col-6 statsDiv">
+                        <img src="{% static 'img/sectors/manufacturing.png' %}" alt="" width=200 height=200>
+                        <h3>Manufacturing</h5>
+                    </div>
+                    <div class="col-md-3 col-6 statsDiv">
+                        <img src="{% static 'img/sectors/finance.png' %}" alt="" width=200 height=200>
+                        <h3>Finance</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container text-center">
+            <h2 class="text-center">Our clients</h2>
+            <div class="row owl-carousel owl-theme justify-content-center">
+                <div class="item col">
+                    <img src="{% static 'img/companies/IMAST.png' %}" alt="imast" class="img-fluid">
+                </div>
+                <div class="item col">
+                    <img src="{% static 'img/companies/roxaiser.png' %}" alt="roxaiser" class="img-fluid">
+                </div>
+                <div class="item col">
+                    <img src="{% static 'img/companies/royal.png' %}" alt="royal" class="img-fluid">
+                </div>
+                <div class="item col">
+                    <img src="{% static 'img/companies/salesMask.png' %}" alt="salesMask" class="img-fluid">
+                </div>
+                <div class="item col">
+                    <img src="{% static 'img/companies/insignia.png' %}" alt="insignia" class="img-fluid">
+                </div>
+                <div class="item col">
+                    <img src="{% static 'img/companies/webglobex.png' %}" alt="webglobex" class="img-fluid">
+                </div>
+                <div class="item col">
+                    <img src="{% static 'img/companies/skyline.png' %}" alt="skyline" class="img-fluid">
+                </div>
+                <div class="item col">
+                    <img src="{% static 'img/companies/saar.png' %}" alt="saar" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <ul class="verticalSlider">
+        <li><a style="color:#00adf1 !important;" href="#" class="fa fa-twitter"></a></li>
+        <li><a href="https://www.facebook.com/ProfCess-2406155253003978/" target="_blank"
+               class="fa fa-facebook-official text-warning"></a></li>
+        <li><a style="color: #e1306c !important;"
+               href="https://instagram.com/profcess?igshid=1otmnrq2o0yru" target="_blank"
+               class="fa fa-instagram"></a></li>
+        <li>
+            <a style="color: #0e76a8;"
+               href="https://www.linkedin.com/company/profcess" target="_blank"
+               class="fa fa-linkedin"></a></li>
+    </ul>
+{% endif %} {% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'js/animationCounter.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'owlCarousel/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'owlCarousel/owl.theme.default.min.css' %}">
+    <script src="{% static 'owlCarousel/owl.carousel.js' %}"></script>
+    <script>
+
+
+        $(function () {
+            $('.statsCount#registeredCompanies').animationCounter({
+                start: 0,
+                step: 3,
+                delay: 100,
+                end: 114,
+                txt: '+'
+            })
+            $('.statsCount#applicants').animationCounter({
+                start: 0,
+                step: 225,
+                delay: 100,
+                end: 5000,
+                txt: '+'
+            })
+
+            $('.statsCount#careers').animationCounter({
+                start: 0,
+                step: 25,
+                delay: 100,
+                end: 450,
+                txt: '+'
+            })
+            $('.statsCount#tieUPS').animationCounter({
+                start: 0,
+                step: 2,
+                delay: 100,
+                end: 32,
+                txt: '+'
+            })
+
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 1000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 2
+                    },
+                    1000: {
+                        items: 4
+                    }
+                }
+            })
+            let jobsTab = $('#job-tab')
+            let peopleTab = $("#people-tab")
+
+            peopleTab.css('color', '#869791')
+            jobsTab.css('color', '#004199')
+
+            jobsTab.click(() => {
+                peopleTab.css('color', '#869791')
+                jobsTab.css('color', '#004199')
+            })
+
+            peopleTab.click(() => {
+                peopleTab.css('color', '#004199')
+                jobsTab.css('color', '#869791')
+            })
+
+        });
+
+
+    </script>
+{% endblock %}

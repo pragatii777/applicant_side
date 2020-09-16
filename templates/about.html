@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<header class=" three headerTitle">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class=" text-uppercase">About Us</h1>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="">
+    <div class="container about">
+        <div class="row">
+            <div class="col">
+                <h1>It's never about US, but always about YOU.
+                    <br>But we do have our little story to tell.</h1>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section>
+    <div id="sideBySideAbout" class="container col-md-8 col-10">
+        <div class="row" data-aos-delay="10" data-aos="fade-right" data-aos-easing="ease-in-out"
+            data-aos-duration="300">
+            <div class="col-md-4 col-4">
+                <img class="img-fluid" src="{% static 'img/info/1.png' %}" alt="stats">
+            </div>
+            <div class="col-md-8 col-8">
+                <h1 class="text-center">Who We Are</h1>
+                <ul class="text-justify">
+                    <li>We are the story of work with a team of supercharged, talented, and experienced people along
+                        with fresher who are highly ardent and can go to any extent to achieve the customary goal. </li>
+                    <li>We will not bore you with our history, the number of locations we have or the awards we’ve won.
+                    </li>
+                    <li>What we do and why we do it is all you need to know.</li>
+                </ul>
+                <hr class="bg-primary p-1">
+            </div>
+        </div>
+        <div class="row" data-aos-delay="10" data-aos="fade-left" data-aos="fade-left" data-aos-easing="ease-in-out"
+            data-aos-duration="300">
+            <div class="col-md-8 col-8 text-left">
+                <h1 class="text-center">What We Do</h1>
+                <ul class="text-justify">
+                    <li>We help people ditch the script on the old ways of thinking and make the people-work connections
+                        that enable the growth which job seekers and employers are striving for. </li>
+                    <li>We're all about placing the right people in the right positions, not just filling a quota. We
+                        listen to both the client and candidate's needs and ensure the entire process is a conversation,
+                        not just a transaction. </li>
+                    <li>We establish an ease in alliance between the company demand and skilled workforce through our
+                        well-defined research and tech based platform which mainly monitors the real time market trend
+                        and various diversified needs. </li>
+                    <li>The alliance is established by assisting the company with a skilled workforce and providing the
+                        opportunity to the talented candidates to update their employment status. </li>
+                    <li>It's not a success until both our client and candidate are happy. Let us help you find success,
+                        no matter which side of the process you're on.</li>
+                </ul>
+                <hr class="bg-primary p-1">
+            </div>
+            <div class="col-1"></div>
+            <div class="col-md-3 col-3 d-flex align-items-center">
+                <div class="text-right">
+                    <img class="img-fluid" src="{% static 'img/info/2.png' %}" alt="stats">
+                </div>
+            </div>
+        </div>
+        <div class="row" data-aos-delay="10" data-aos-easing="ease-in-out" data-aos-duration="300">
+            <div class="col-md-4 col-4">
+                <img class="img-fluid" src="{% static 'img/info/3.png' %}" alt="stats">
+            </div>
+            <div class="col-md-8 col-8">
+                <h1 class="text-center">Why We Do</h1>
+                <ul class="text-justify">
+                    <li>We live in a world where nothing is permanent, job seekers and employers are continually asking,
+                        “What’s next?” The next chapter in life and quest for advancement means careers are continually
+                        in motion. </li>
+                    <li>The next business strategy and journey for growth means employers are continually testing their
+                        workforce effectiveness. At Prof-cess, we always think about what’s next we have stored for you.
+                    </li>
+                    <li>We work to find answers to your question</li>
+                </ul>
+                <hr class="bg-primary p-1">
+            </div>
+        </div>
+    </div> 
+</section>
+{% endblock %}

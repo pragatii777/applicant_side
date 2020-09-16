@@ -1,0 +1,532 @@
+{% extends "dashboard.html" %}
+{% load static %}
+{% block content %}
+{% block style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/multiple-select.css' %}">
+{% endblock %}
+<div class="container-fluid mt--6">
+    <div class="row justify-content-center">
+        <div class="col-md-11 col-12">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-11 col-9">
+                                    <h1>Profile</h1>
+                                </div>
+                                <div class="col-1 text-right">
+                                    <button id="profile" type="button" class="btn btn-primary fa fa-edit"
+                                        data-toggle="modal" data-target="#editProfile">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="col">
+                                <div class="text-center" id="profileData">
+                                    <h1 id="profileFirstName"></h1>
+                                    <h1 id="profileLastName"></h1>
+                                    <h3 id="profileHeadline"></h3>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h3 id="profileEducation"></h3>
+                                        </div>
+                                        <div class="col">
+                                            <h3 id="profileIndustry"></h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h3 id="profileLocation"></h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h3 id="profilePosition"></h3>
+                                        </div>
+                                        <div class="col">
+                                            <h3 id="profileExpert"></h3>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <h1 id="profileContact"></h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-10 col-9">
+                                    <h1>Your description</h1>
+                                </div>
+                                <div class="col-md-2 col-3 text-right">
+                                    <button type="button" class="btn btn-primary fa fa-edit " data-toggle="modal"
+                                        data-target="#editBrief">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 id="briefDescription"></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-10 col-9">
+                                    <h1>Company Details</h1>
+                                </div>
+                                <div class="col-md-2 col-3 text-right">
+                                    <button type="button" class="btn btn-primary fa fa-plus" data-toggle="modal"
+                                        data-target="#addCompanyDetails">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div id="iExp" class="col"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-10 col-9">
+                                    <h1>School</h1>
+                                </div>
+                                <div class="col-md-2 col-3 text-right">
+                                    <button type="button" class="btn btn-primary fa fa-plus" data-toggle="modal"
+                                        data-target="#addSchoolDetails">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="col" id="education"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-10 col-9">
+                                    <h1>Project</h1>
+                                </div>
+                                <div class="col-md-2 col-3 text-right">
+                                    <button type="button" class="btn btn-primary fa fa-plus" data-toggle="modal"
+                                        data-target="#addProjectDetails">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="col" id="project">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-10 col-9">
+                                    <h1>Achievement</h1>
+                                </div>
+                                <div class="col-md-2 col-3 text-right">
+                                    <button type="button" class="btn btn-primary fa fa-plus" data-toggle="modal"
+                                        data-target="#addAchievementDetails">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="col" id="achievement">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="col">
+                                <h1>Your skills</h1>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div multiple id="skill_info" name="skill_info[]">
+                                {% for skill in form.skill_info %}
+                                    {{skill}}
+                                {% endfor %}
+                                <script src="{% static 'js/jquery-3.5.1.min.js' %}" charset="utf-8"></script>
+                                <script src="{% static 'js/gijgo.min.js' %}" charset="utf-8"></script>
+                                <script src="{% static 'js/multiple-select.js' %}" charset="utf-8"></script>
+                                <script type="text/javascript">
+                                    $('#skill_info').multipleSelect({
+                                        multiple: true,
+                                        filter: true,
+                                        multipleWidth: 300,
+                                        maxHeight: 150,
+                                        width: 300,
+                                        dropWidth: 300,
+                                        displayHtml: false,
+                                        displayValues: true,
+                                        displayTitle: true,
+                                        minimumCountSelected: 10,
+                                        keepOpen: true,
+                                        showClear: true,
+                                        placeholder: 'Add Skills',
+                                    });
+                                    $('#skill_info').multipleSelect('getSelects');
+                                </script>
+                            </div> 
+                            <!--<input type="text" class="form-control" placeholder="add skills" />-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col text-center">
+        <button class="btn btn-lg btn-primary" id="mainSave" type="button">Save all info</button>
+    </div>
+</div>
+</div>
+<!--DJANGO-->
+<div class="row justify-content-center" hidden>
+    <div class="col-md-8 col-12">
+        <form method="POST">
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header">
+                    {% csrf_token %}
+                    <div class="text-center">
+                        <button id="finalSaveButton" type="submit">Save Updated Profile</button>
+                    </div>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    {% for field in form %}
+                    <div class="form-group row justify-content-center">
+                        <label for="example-text-input" class="col-md-3 col-4 col-form-label form-control-label">
+                            {{ field.label_tag }}{% if field.field.required %} * {% endif %}</label>
+                        <div class="col-md-9 col-8">
+                            {{ field }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div id="editProfile" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Brief</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="headline">Resume Headline</label>
+                            <input type="text" id="headline" class="form-control" value="" name="profile[headline]" />
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" class="form-control" value=""
+                                    name="profile[firstName]" />
+                            </div>
+                            <div class="form-group col">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" class="form-control" value=""
+                                    name="profile[lastName]" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label for="edu">Education Title</label>
+                                <input type="text" id="edu" class="form-control" value="" name="profile[education]" />
+                            </div>
+                            <div class="form-group col">
+                                <label for="industry">Industry</label>
+                                <input type="text" id="industry" class="form-control" value=""
+                                    name="profile[industry]" />
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="location">Location</label>
+                                <input type="text" id="location" class="form-control" value=""
+                                    name="profile[location]" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col form-group">
+                                <label for="position">Current Position</label>
+                                <input type="text" id="position" class="form-control" value=""
+                                    name="profile[position]" />
+                            </div>
+                            <div class="col form-group">
+                                <label for="expertise">You're expert in</label>
+                                <input id="expertise" class="form-control" type="text" value=""
+                                    name="profile[expert]" />
+                            </div>
+                            <div class="col-12 form-group">
+                                <label for="contact">Your contact info</label>
+                                <input id="contact" class="form-control" type="text" value="" name="profile[contact]" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Description-->
+<div id="editBrief" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Your description</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="description">Your brief description</label>
+                            <textarea id="description" class="form-control" type="text"
+                                name="briefDescription"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--AddCompanyDetails -->
+<div id="addCompanyDetails" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Add a new company</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="cDesignation">Add designation</label>
+                            <input id="cDesignation" type="text" class="form-control" name="iExp[designation]"
+                                required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="cName">Company name</label>
+                            <input id="cName" type="text" class="form-control" name="iExp[cName]" />
+                        </div>
+                        <div class="form-group">
+                            <label for="cLocation">Location</label>
+                            <input id="cLocation" type="text" class="form-control" name="iExp[location]" />
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label for="cFrom">From (Month,YYYY)</label>
+                                <input id="cFrom" class="form-control" type="month" name="iExp[from]">
+                            </div>
+                            <div class="form-group col">
+                                <label for="cTill">Till (Month,YYYY)</label>
+                                <input id="cTill" class="form-control" type="month" name="iExp[till]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--AddSchoolInformation-->
+<div id="addSchoolDetails" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Add School information</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="sName">School</label>
+                            <input id="sName" type="text" class="form-control" name="studentEducation[name]" />
+                        </div>
+                        <div class="form-group">
+                            <label for="sDegree">Degree</label>
+                            <input id="sDegree" type="text" class="form-control" name="studentEducation[degree]" />
+                        </div>
+                        <div class="form-group">
+                            <label for="sField">Field of study</label>
+                            <input id="sField" type="text" class="form-control" name="studentEducation[field]" />
+                        </div>
+                        <div class="form-group">
+                            <label for="sLocation">Location</label>
+                            <input id="sLocation" type="text" class="form-control" name="studentEducation[location]" />
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label for="sFrom">From (Month,YYYY)</label>
+                                <input id="sFrom" class="form-control" type="month" name="studentEducation[from]">
+                            </div>
+                            <div class="form-group col">
+                                <label for="sTill">Till (Month,YYYY)</label>
+                                <input id="sTill" class="form-control" type="month" name="studentEducation[till]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--AddProjectInformation-->
+<div id="addProjectDetails" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Add Project Details</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="pName">Project Name</label>
+                            <input id="pName" type="text" class="form-control" name="userProject[name]" />
+                        </div>
+                        <div class="form-group">
+                            <label for="pDescription">Project Description</label>
+                            <textarea id="pDescription" type="text" class="form-control"
+                                name="userProject[description]"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="pUrl">Project Url</label>
+                            <input id="pUrl" type="text" class="form-control" name="userProject[url]" />
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label for="pFrom">From (Month,YYYY)</label>
+                                <input id="pFrom" class="form-control" type="month" name="userProject[from]">
+                            </div>
+                            <div class="form-group col">
+                                <label for="pTill">Till (Month,YYYY)</label>
+                                <input id="pTill" class="form-control" type="month" name="userProject[till]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Achievements-->
+<div id="addAchievementDetails" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Achievements</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="aTitle">Project Name</label>
+                            <input id="aTitle" type="text" class="form-control" name="achievement[title]" />
+                        </div>
+                        <div class="form-group">
+                            <label for="aDescription">Description</label>
+                            <textarea id="aDescription" type="text" class="form-control"
+                                name="achievement[description]"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label for="aIssuer">Issuer</label>
+                                <input id="aIssuer" type="text" class="form-control" name="achievement[issuer]" />
+                            </div>
+                            <div class="form-group col">
+                                <label for="aIssue">Date (Month,YYYY)</label>
+                                <input id="aIssue" class="form-control" type="month" name="achievement[issue]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <h1 id="nerdion" data-id="bla">THis is iha</h1>
+</div>
+{% endblock content %}
+
+{% block dashboardScripts %}
+
+<script type="text/javascript" src="{% static 'js/userProfile.js' %}">
+</script>
+{% endblock %}

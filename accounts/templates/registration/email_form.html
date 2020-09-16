@@ -1,0 +1,43 @@
+{% extends "baseDashboard.html" %}
+{% block content %}
+    <!-- Masthead-->
+        <form method="POST" class="form">
+            {% csrf_token %}
+            <div class="container ">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 formDesign">
+                        <div class="form-group row justify-content-center">
+                            {% if form.errors %}
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <div class="m-1"></div>
+                                    <div style="border-radius: 8px;" class="col-11 alert alert-danger">
+                                        {{ error }}
+                                    </div>
+                                    <div class="m-1"></div>
+                                {% endfor %}
+                            {% endfor %}
+                                {% for error in form.non_field_errors %}
+                                <div class="col-12 p-3 bg-danger">
+                                    <p> {{ error }} </p>
+                                {{ form.phone }}
+                                </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="form-group row">
+                            <div class="col">
+                                <label for="id_{{ form.verified_email.name }}">{{ form.verified_email.label }}:</label>
+                                <input class="form-control" type="email" name="{{ form.verified_email.name }}" required  {{ form.verified_email }}
+                                 </input>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Activation Link to this Mail</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% load static %}
+    <header class="one headerTitle">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-uppercase">Our services</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div id="recruiterServices" class="statsDiv container text-center">
+            <div class="row">
+                <div class="col-md-4 col-6">
+                    <img class="img-fluid" src="{% static 'img/recruiterServices/1.png' %}" alt="stats">
+                    <h4>Post a job</h4>
+                    <p>Receive applications from interested candidates</p>
+                </div>
+                <div class="col-md-4 col-6">
+                    <img class="img-fluid" src="{% static 'img/recruiterServices/2.png' %}" alt="stats">
+                    <h4>Search Cv’s</h4>
+                    <p>Search more than thousands Cv’s across industries career levels.</p>
+                </div>
+                <div class="col-md-4 col-6">
+                    <img class="img-fluid" src="{% static 'img/recruiterServices/3.png' %}" alt="stats">
+                    <h4>Branding Solutions</h4>
+                    <p>Boost your employer brand with a company profile, branding solutions and your very own career
+                        site</p>
+                </div>
+                <div class="col-md-4 col-6">
+                    <img class="img-fluid" src="{% static 'img/recruiterServices/4.png' %}" alt="stats">
+                    <h4>End to End Recruitment</h4>
+                    <p>Tell us your criteria and our team of experts will take care of your hiring worries</p>
+                </div>
+                <div class="col-md-4 col-6">
+                    <img class="img-fluid" src="{% static 'img/recruiterServices/5.png' %}" alt="stats">
+                    <h4>Online Assessment</h4>
+                    <p>Recruit quality candidates within less time and cost using our online assessments</p>
+                </div>
+                <div class="col-md-4 col-6">
+                    <img class="img-fluid" src="{% static 'img/recruiterServices/6.png' %}" alt="stats">
+                    <h4>Campus Recruitment</h4>
+                    <p>With our strong network of campuses, we offer you the opportunity of hiring from the campus that
+                        you are interested in.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="bannerPromote" class="container-fluid text-center bg-secondary text-light">
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <h1>Explore our RPO and Hire the best Talent today </h1>
+                    <h3>Free job posting and resume search for employer as part of our promotional campaign.</h3>
+                    <a class="btn btn-primary" href="{% url 'recruiter:create_job' %}">Post a Job</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-5"></div>
+        <div id="sideBySide" class="container col-10 col-md-7">
+            <div class="row" data-aos-delay="10" data-aos="fade-right" data-aos-easing="ease-in-out"  data-aos-duration="300">
+                <div class="col-md-2 col-3" >
+                    <img class="img-fluid" src="{% static 'img/recruiterI/1.png' %}" alt="stats">
+                </div>
+                <div class="col-md-10 col-9">
+                    <h2>SEARCH TALENT</h2>
+                    <p>Search results precisely to the criteria you set so we can connect you with best candidates Once
+                        you post your job we provide you with best suited candidates for your job role.</p>
+
+                </div>
+            </div>
+            <div class="row" data-aos-delay="10" data-aos="fade-left" data-aos="fade-left" data-aos-easing="ease-in-out"  data-aos-duration="300">
+                <div class="col-md-2 col-3"></div>
+                <div class="col-md-8 col-6 text-left">
+                    <h2>REACH TOP TALENT</h2>
+                    <p> Profcess's matching technology finds the right candidates, then invites them to apply. we’ve got
+                        highly skilled and experienced candidates ready to go. The right fit can start today.</p>
+                </div>
+                <div class="col-md-2 col-3 text-right">
+                    <img class="img-fluid" src="{% static 'img/recruiterI/2.png' %}" alt="stats">
+                </div>
+            </div>
+            <div class="row" data-aos-delay="10" data-aos-easing="ease-in-out"  data-aos-duration="300">
+                <div class="col-md-2 col-3">
+                    <img class="img-fluid" src="{% static 'img/recruiterI/3.png' %}" alt="stats">
+                </div>
+                <div class="col-md-10 col-9">
+                    <h2>REVIEW GREAT MATCHES</h2>
+                    <p> as candidates apply, you can manage them in our all in one dashboard. Our staffing professionals
+                        blend their expertise with matching technology that incorporates data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

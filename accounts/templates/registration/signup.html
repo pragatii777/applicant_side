@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block content %}
+    <!-- Masthead-->
+    <header class="signUp">
+        <form method="POST" class="form">
+            {% csrf_token %}
+            <div class="container ">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 formDesign">
+                        <div class="form-row">
+                            <div class="col">
+                                <h4>Join Prof-Cess </h4>
+                                <h4 class="text-dark">it's free!</h4>
+                            </div>
+
+                        </div>
+                        <div class="form-group row justify-content-center">
+                            {% if form.errors %}
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <div class="m-1"></div>
+                                    <div style="border-radius: 8px;" class="col-11 alert alert-danger">
+                                        {{ error }}
+                                    </div>
+                                    <div class="m-1"></div>
+                                {% endfor %}
+                            {% endfor %}
+                                {% for error in form.non_field_errors %}
+                                <div class="col-12 p-3 bg-danger">
+                                    <p> {{ error }} </p>
+                                {{ form.phone }}
+                                </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="form-group row">
+                            <div class="col">
+                                <label for="id_{{ form.username.name }}">{{ form.username.label }}:</label>
+                                <input class="form-control" type="text" name="{{ form.username.name }}" required
+                                       id="id_{{ form.username.name }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col">
+                                <label for="id_{{ form.email.name }}">{{ form.email.label }}:</label>
+                                <input class="form-control" type="email" name="{{ form.email.name }}" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            {% for i in form %}
+                                {% if i.name in "password1, password2" %}
+                                    <div class="col-6">
+                                        <label for="id_{{ i.name }}">{{ i.label }}:</label>
+                                        <div class="input-group mb-3">
+                                            <input class="form-control passwordInput" type="password"
+                                                   name="{{ i.name }}" required
+                                                   id="id_{{ i.name }}">
+                                            <div id="{{ i.name }}" class="input-group-append">
+                                                <span class="input-group-text"><i id="eye_{{ i.name }}" class="fa"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="form-group row">
+                            {% for i in form %}
+                                {% if i.name in "first_name, last_name, company_name,college_name" %}
+                                    <div class="col-6">
+                                        <label for="id_{{ i.name }}">{{ i.label }}:</label>
+                                        <input class="form-control" type="text" name="{{ i.name}}" required
+                                               id="id_{{ i.name }}">
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                            <div class="col-6">
+                                <label for="id_{{ form.phone.name }}">{{ form.phone.label }}:</label>
+                                <input class="form-control" type="tel" name="{{ form.phone.name}}" required
+                                       id="id_{{ form.phone.name }}" placeholder="">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <div class="col">
+                                <p> By clicking "Sign In" you agree with Prof-Cess's <a href="privacy.html"
+                                                                                        target="_blank">privacy
+                                    policy</a> and <a href="terms.html" target="_blank">terms of use</a></p>
+                                <button type="submit" class="btn btn-primary">Sign Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </header>
+{% endblock %}

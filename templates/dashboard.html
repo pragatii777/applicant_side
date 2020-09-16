@@ -1,0 +1,407 @@
+{% extends "baseDashboard.html" %}
+{% load static %}
+{% block menu %}
+    <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+        <div class="scrollbar-inner">
+            <!-- Brand -->
+            <div class="sidenav-header  d-flex  align-items-center">
+                <a href="{% url 'dashboard' %}" class="nav-link">
+                        <img style="height: 70px; margin:10px;" src="{% static 'assets/img/logoFull.png' %}" alt="...">
+                </a>
+                <div class=" ml-auto ">
+                    <!-- Sidenav toggler -->
+                    <div class="sidenav-toggler d-none d-xl-block" data-action="sidenav-unpin"
+                         data-target="#sidenav-main">
+                        <div class="sidenav-toggler-inner">
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                            <i class="sidenav-toggler-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="dashboardNavigation" class="navbar-inner">
+                <!-- Collapse -->
+                <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+                    <!-- Nav items -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'accounts:index' %}">
+                                <i class="person_icon"></i>
+                                <span class="nav-link-text">{{ user.username }}</span>
+                            </a>
+                        </li>
+                    </ul>
+                    {% if user.usertype == "Recruiter" %}
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#jobs_dashboard" data-toggle="collapse" role="button"
+                               aria-expanded="true"
+                               aria-controls="jobs_dashboard">
+                                <i class="ni ni-shop text-primary"></i>
+                                <span class="nav-link-text">Jobs</span>
+                            </a>
+                            <div class="collapse show" id="jobs_dashboard">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{% url 'recruiter:create_job' %}" class="nav-link">
+                                            <span class="sidenav-mini-icon"> P </span>
+                                            <span class="sidenav-normal"> Post A Job </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'recruiter:posted_jobs' %}" class="nav-link">
+                                            <span class="sidenav-mini-icon"> L </span>
+                                            <span class="sidenav-normal"> My Job Listings </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#candidates_dashboard" data-toggle="collapse" role="button"
+                               aria-expanded="true"
+                               aria-controls="candidates_dashboard">
+                                <i class="ni ni-shop text-primary"></i>
+                                <span class="nav-link-text">Candidates</span>
+                            </a>
+                            <div class="collapse show" id="candidates_dashboard">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{% url 'recruiter:search_candidates' %}" class="nav-link">
+                                            <span class="sidenav-mini-icon"> S </span>
+                                            <span class="sidenav-normal">Search Candidates</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'recruiter:my_candidates' %}" class="nav-link">
+                                            <span class="sidenav-mini-icon"> M </span>
+                                            <span class="sidenav-normal"> My Candidates </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#candidates_dashboard" data-toggle="collapse" role="button"
+                               aria-expanded="true"
+                               aria-controls="candidates_dashboard">
+                                <i class="ni ni-shop text-primary"></i>
+                                <span class="nav-link-text">Pricing</span>
+                            </a>
+                            <div class="collapse show" id="pricing_dashboard">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{% url 'recruiter:pricing' %}" class="nav-link">
+                                            <span class="sidenav-mini-icon"> S </span>
+                                            <span class="sidenav-normal">View Plans</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'recruiter:purchase-plan' %}" class="nav-link">
+                                            <span class="sidenav-mini-icon"> M </span>
+                                            <span class="sidenav-normal"> Purchase a Plan </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#solutions_dashboard" data-toggle="collapse" role="button"
+                               aria-expanded="true"
+                               aria-controls="solutions_dashboard">
+                                <i class="ni ni-shop text-primary"></i>
+                                <span class="nav-link-text">Solutions</span>
+                            </a>
+                            <div class="collapse show" id="solutions_dashboard">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{% url 'recruiter:campus_hiring' %}" class="nav-link">
+                                            <span class="sidenav-mini-icon"> S </span>
+                                            <span class="sidenav-normal">Campus Hiring</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'recruiter:assessments' %}" class="nav-link">
+                                            <span class="sidenav-mini-icon"> M </span>
+                                            <span class="sidenav-normal">Assessments</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#blogs_dashboard" data-toggle="collapse" role="button"
+                               aria-expanded="true"
+                               aria-controls="blogs_dashboard">
+                                <i class="ni ni-shop text-primary"></i>
+                                <span class="nav-link-text">Blogs</span>
+                            </a>
+                            <div class="collapse" id="blogs_dashboard">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{% url 'recruiter:add_a_blog' %}" class="nav-link">
+                                            <span class="sidenav-mini-icon"> S </span>
+                                            <span class="sidenav-normal">Add a blog</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'recruiter:recruiter_blog' %}" class="nav-link">
+                                            <span class="sidenav-mini-icon"> M </span>
+                                            <span class="sidenav-normal">Recruiter blogs</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    {% elif user.usertype == "College" %}
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#jobs_dashboard" data-toggle="collapse" role="button"
+                               aria-expanded="true"
+                               aria-controls="jobs_dashboard">
+                                <i class="ni ni-shop text-primary"></i>
+                                <span class="nav-link-text">Jobs</span>
+                            </a>
+                            <div class="collapse show" id="jobs_dashboard">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{% url 'college:create_job' %}" class="nav-link">
+                                            <span class="sidenav-mini-icon"> P </span>
+                                            <span class="sidenav-normal"> Post A Job </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'college:posted_jobs' %}" class="nav-link">
+                                            <span class="sidenav-mini-icon"> L </span>
+                                            <span class="sidenav-normal"> My Job Listings </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                {% else %}
+
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'applicant:edit_profile' pk=user.pk  %}">
+                                    <i class="ni ni-archive-2 text-green"></i>
+                                    <span class="nav-link-text">Edit Profile</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'applicant:matching_job' %}">
+                                    <i class="ni ni-chart-pie-35 text-info"></i>
+                                    <span class="nav-link-text">Matching Jobs</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#navbar-jobs" data-toggle="collapse" role="button"
+                                   aria-expanded="false"
+                                   aria-controls="navbar-jobs">
+                                    <i class="ni ni-ungroup text-orange"></i>
+                                    <span class="nav-link-text">Jobs</span>
+                                </a>
+                                <div class="collapse" id="navbar-jobs">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a href="{% url 'applicant:job_search' %}" class="nav-link">
+                                                <span class="sidenav-mini-icon"> S </span>
+                                                <span class="sidenav-normal"> Searching Jobs </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{% url 'applicant:job_alert' %}" class="nav-link">
+                                                <span class="sidenav-mini-icon"> J </span>
+                                                <span class="sidenav-normal">Job Alerts </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{% url 'applicant:job_recommendations' %}" class="nav-link">
+                                                <span class="sidenav-mini-icon"> J </span>
+                                                <span class="sidenav-normal"> Job Recommendations </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{% url 'applicant:job_companies' %}" class="nav-link">
+                                                <span class="sidenav-mini-icon"> C </span>
+                                                <span class="sidenav-normal"> Companies </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#navbar-services" data-toggle="collapse" role="button"
+                                   aria-expanded="false"
+                                   aria-controls="navbar-services">
+                                    <i class="ni ni-ui-04 text-info"></i>
+                                    <span class="nav-link-text">Services</span>
+                                </a>
+                                <div class="collapse" id="navbar-services">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a href="{% url 'applicant:career_guidance' %}" class="nav-link">
+                                                <span class="sidenav-mini-icon"> C </span>
+                                                <span class="sidenav-normal"> Career Guidance </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{% url 'applicant:interview_tips' %}" class="nav-link">
+                                                <span class="sidenav-mini-icon"> T </span>
+                                                <span class="sidenav-normal"> Tips for Interview </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{% url 'applicant:expert_call' %}" class="nav-link">
+                                                <span class="sidenav-mini-icon"> E </span>
+                                                <span class="sidenav-normal"> Expert Call </span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#navbar-resume" data-toggle="collapse" role="button"
+                                   aria-expanded="false"
+                                   aria-controls="navbar-resume">
+                                    <i class="ni ni-archive-2 text-blue"></i>
+                                    <span class="nav-link-text">Resume</span>
+                                </a>
+                                <div class="collapse" id="navbar-resume">
+                                    <ul class="nav nav-sm flex-column">
+                                        <li class="nav-item">
+                                            <a href="{% url 'converter:manual' %}" class="nav-link">
+                                                <span class="sidenav-mini-icon"> C </span>
+                                                <span class="sidenav-normal"> Manual Resume </span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{% url 'converter:select' from_index=1 %}">
+                                                <span class="sidenav-mini-icon"> T </span>
+                                                <span class="sidenav-normal"> Auto-Generate Resume </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+
+{% block navbar %}
+    {% if user.is_authenticated %}
+        {% if user.usertype == "Recruiter" %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'recruiter:profile' %}" >View
+                Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'recruiter:posted_jobs' %}">Posted jobs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'recruiter:create_job' %}" >Add job</a>
+        </li>
+        {% else %}
+        {% if user.applicantuserprofile %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'applicant:jobs_list' %}">Find Jobs</a>
+            </li>
+        {% else %}
+        {% if user.usertype == "College" %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'college:profile' %}" >View
+                Profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'college:posted_jobs' %}">Posted jobs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'college:create_job' %}" >Add job</a>
+        </li>
+        {% endif %}
+        {% endif %}
+    {% endif %}
+
+    {% else %}
+        <!--REDIRECTION CODE-->
+    {% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+    <!-- Header -->
+    {% if user.usertype == "Recruiter" %}
+        <div class="container-fluid mt--6">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <!-- Card header -->
+                        <div class="card-header border-0">
+                            <h1 class="mb-0">Jobs Posted</h1>
+                        </div>
+                        <!-- Light table -->
+                        <div class="table-responsive" data-toggle="list"
+                             data-list-values="[&quot;name&quot;, &quot;budget&quot;, &quot;status&quot;, &quot;completion&quot;]">
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th scope="col" class="sort" data-sort="name">Project</th>
+                                    <th scope="col" class="sort" data-sort="budget">Budget</th>
+                                    <th scope="col" class="sort" data-sort="status">Status</th>
+                                </tr>
+                                </thead>
+                                <tbody class="list">
+                                <tr>
+                                    <th scope="row">
+                                        <div class="media align-items-center">
+                                            <div class="media-body">
+                                                <span class="name mb-0 text-sm">Black Dashboard</span>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <td class="budget">
+                                        $3150 USD
+                                    </td>
+                                    <td>
+									<span class="badge badge-dot mr-4">
+										<i class="bg-danger"></i>
+										<span class="status">delayed</span>
+									</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="container-fluid mt--6">
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-white">Hello World</h1>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+
+{% endblock %}
+
+{% block dashboardScripts %}
+{% endblock %}

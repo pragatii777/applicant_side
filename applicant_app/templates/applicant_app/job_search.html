@@ -1,0 +1,15 @@
+{% extends "dashboard.html" %}
+{% block content %}
+<h1 style="color: darkblue;">
+  Job Search
+</h1>
+{% if jobs %}
+<ul style="list-style: none;">
+  {% for jo in jobs %}
+  <li>{{ jo.job_title }}</li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No job present.</p>
+{% endif %}
+{% endblock content %}

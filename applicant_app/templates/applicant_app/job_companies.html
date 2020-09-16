@@ -1,0 +1,15 @@
+{% extends "dashboard.html" %}
+{% block content %}
+<h1 style="color:darkblue">
+   Job Companies
+</h1>
+{% if recruiter %}
+<ul style="list-style: none;">
+  {% for re in recruiter %}
+  <li>{{ re.name }}</li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No recruiter.</p>
+{% endif %}
+{% endblock content %}

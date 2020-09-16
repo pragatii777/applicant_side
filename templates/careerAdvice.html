@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+    {% load static %}
+    <header class="masthead two headerTitle">
+        <div class="container ">
+            <div class="row">
+                <div class="col">
+                    <h1 class="masthead-heading text-uppercase">Career Advice</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div id="sideBySide" class="container col-10 col-md-7">
+            <div class="row" data-aos="fade-right" data-aos-delay="10" data-aos-easing="ease-in-out"  data-aos-duration="300">
+                <div class="col-3 col-md-2">
+                    <img class="img-fluid" src="{% static 'img/candidateInfo/1.png' %}" alt="stats">
+                </div>
+                <div class="col-8 col-md-10">
+                    <h2>Verified, up-to-date job listings</h2>
+                    <p>Every day we signal jobs directly from employer. We’re committed to accurate, high-quality jobs
+                        so you won’t find old, duplicated, or spammed listings here.</p>
+                </div>
+            </div>
+            <div class="row" data-aos="fade-left" data-aos-delay="10" data-aos-easing="ease-in-out"  data-aos-duration="300">
+                <div class="col-3 col-md-2"></div>
+                <div class="col-6 col-md-8 text-left">
+                    <h2>Seamless job search</h2>
+                    <p>Organize and automate your job search while at home or on the go. <br/>We’ll deliver new,
+                        relevant
+                        jobs of interest straight to your inbox.</p>
+                </div>
+                <div class="col-3 col-md-2 text-right">
+                    <img class="img-fluid" src="{% static 'img/candidateInfo/2.png' %}" alt="stats">
+                </div>
+            </div>
+            <div class="row" data-aos="fade-right" data-aos-delay="10" data-aos-easing="ease-in-out"  data-aos-duration="300">
+                <div class="col-3 col-md-2">
+                    <img class="img-fluid" src="{% static 'img/candidateInfo/3.png' %}" alt="stats">
+                </div>
+                <div class="col-8 col-md-10">
+                    <h2>Job Seeker and Employer connect</h2>
+                    <p>For job seeker and employer connect - We want job seekers and employers to connect directly.
+                        After you find the right job, you’re sent straight to the employer’s details to apply. No
+                        fuss.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <div class="m-5"></div>
+                    <div class="row" id="path">
+                        <div class="col-md-6 col-12 interviewTips">
+                            <div>
+                                <h2>TIPS FOR WRITING CV</h2>
+                                <p>A Detailed document highlighting your professional and
+                                    academic history.</p>
+                                <!--<a class="btn btn-secondary" href="">READ MORE</a>-->
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12 resumeTips">
+                            <div>
+                                <h2>TIPS FOR INTERVIEW</h2>
+                                <p>A structured conversation where interviewer ask few
+                                    questions and candidate is supposed to answer.</p>
+                                <!--<a class="btn btn-primary" href="">READ MORE</a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

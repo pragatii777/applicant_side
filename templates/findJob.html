@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+    {% load static %}
+
+    <header class="masthead indexW">
+        <div class="container">
+            <div class="m-5"></div>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="m-5"></div>
+                    <h1>FIND A JOB</h1>
+                </div>
+                <div class="col-8">
+                    <form id="findJobForm" action="#" method="post" class="form-row justify-content-center">
+                        <div class="col-6">
+                            <label for="what" class="h1">What</label>
+                            <input type="text" class="form-control input1" id="what"
+                                   placeholder="Search by Job Title or Keywords" name="title">
+                        </div>
+                        <div class="col-3">
+                            <label for="where" class="h1">Where</label>
+                            <input type="text" class="form-control input1" id="where"
+                                   placeholder="City, State or Zip code" name="location">
+                        </div>
+                        <div class="col-3">
+                            <label for="search" class="h1">Find</label>
+                            <button type="button" class="btn btn-secondary">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}

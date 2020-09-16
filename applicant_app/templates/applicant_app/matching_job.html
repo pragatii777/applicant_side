@@ -1,0 +1,10 @@
+
+{% extends "dashboard.html" %}
+{% block content %}
+<h1>
+    Matching job
+</h1>
+{%for job in jobs %}
+<h2><a href="{% url 'applicant:job_detail' pk=job.name.pk %}">{{job.name.job_title}}</a> posted by {{job.name.company_name}}</h2>
+{%endfor%}
+{% endblock content %}

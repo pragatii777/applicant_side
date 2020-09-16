@@ -1,0 +1,7 @@
+{%autoescape off%}
+Hi {{user.username}}
+Thank You for registration in Profcess,
+Please click on the link to confirm your registration,
+
+http://{{ domain }}{% url 'applicant:activate' uid=uid token=token%}
+{%endautoescape%}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <!-- Masthead-->
+    <header class="auth" xmlns="http://www.w3.org/1999/html">
+        <form method="POST" class="form">
+            {% csrf_token %}
+
+            <div class="container ">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 formDesign">
+                        <div class="form-row">
+                            <div class="col">
+                                <h1>LOGIN</h1>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col">
+                                <label for="id_{{ form.username.name }}">{{ form.username.label }}:</label>
+                                <input class="form-control" type="email" name="{{ form.username.name }}" required id="id_{{ form.username.name }}" {{ form.username}}
+                            </input>
+
+                            </div>
+
+
+
+                        </div>
+                        <div class="form-group row">
+                            <div class="col">
+                                <label for="id_{{ form.password.name }}">{{ form.password.label }}:</label>
+                                <div class="input-group mb-3">
+                                    <input class="form-control passwordInput" type="password"
+                                           name="{{ form.password.name }}" required
+                                           id="id_{{ form.password.name }}">
+                                    <div id="{{ form.password.name }}" class="input-group-append">
+                                        <span class="input-group-text"><i id="eye_{{ form.password.name }}" class="fa"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+
+                        {% if form.errors %}
+                            {% for error in form.non_field_errors %}
+                            <div class="col-12 p-3 bg-danger">
+                                <p> {{ error }} </p>
+                            </div>
+
+
+                            {% endfor %}
+                        {% endif %}
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <a href="{% url 'password_reset' %}">Forgot Password?</a>
+                            </div>
+                            <div class="col">
+                                <div class="m-3"></div>
+                                <button type="submit" class="btn btn-lg btn-primary">Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </header>
+{% endblock %}
